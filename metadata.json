@@ -1,0 +1,6 @@
+{
+  "name": "Sobremesas na Travessa — Mayara Campos",
+  "description": "Página do e-book Sobremesas na Travessa por Mayara Campos Confeitaria: 9 receitas práticas, recheios, bases, embalagens e bônus exclusivos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

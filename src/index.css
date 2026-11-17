@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --marrom: #733C1D;
+    --marrom-esc: #4A2410;
+    --rosa: #C9316E;
+    --rosa-esc: #A8255A;
+    --rosa-claro: #F288B8;
+    --rosa-bg: #FCE9F1;
+    --rosa-forte: #E07BA8;
+    --lilas: #A392FF;
+    --creme: #FFFAF5;
+    --creme-2: #F5EEE8;
+    --amarelo: #FFF4B0;
+    --texto: #4A2B1C;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: "Montserrat", system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--creme);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+}
+
+@keyframes snt-marq {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes snt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes snt-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes snt-wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes snt-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(110vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes snt-sheen {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+@keyframes snt-btn-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes snt-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(9px);
+  }
+}
+
+.animate-snt-marq {
+  animation: snt-marq 30s linear infinite;
+}
+
+.animate-snt-marq-rev {
+  animation: snt-marq 34s linear infinite reverse;
+}
+
+.animate-snt-spin {
+  animation: snt-spin 16s linear infinite;
+}
+
+.animate-snt-float {
+  animation: snt-float 5s ease-in-out infinite;
+}
+
+.animate-snt-wiggle {
+  animation: snt-wiggle 3s ease-in-out infinite;
+}
+
+.animate-snt-btn-pulse {
+  animation: snt-btn-pulse 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-snt-arrow-bounce {
+  animation: snt-arrow-bounce 0.85s ease-in-out infinite;
+  will-change: transform;
+}
+
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  transition: transform 0.6s ease;
+}
+
+.btn-sheen:hover::after {
+  animation: snt-sheen 0.9s ease forwards;
+}
+
+.hero-mask {
+  -webkit-mask-image: linear-gradient(180deg, #000 84%, transparent 100%),
+    linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(180deg, #000 84%, transparent 100%),
+    linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-composite: intersect;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-snt-marq,
+  .animate-snt-marq-rev,
+  .animate-snt-spin,
+  .animate-snt-float,
+  .animate-snt-wiggle,
+  .animate-snt-btn-pulse,
+  .animate-snt-arrow-bounce {
+    animation: none !important;
+  }
+}
